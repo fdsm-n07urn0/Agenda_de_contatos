@@ -71,7 +71,7 @@ def exportar_contatos(nome_do_arquivo):
 
 def importar_contatos(nome_do_arquivo):               # Pega o nome do arquivo
     try:
-        with open(nome_do_arquivo, 'r') as arquivo:   # Abre o arquivo passado pelo usuário
+        with open(nome_do_arquivo, 'r') as arquivo:   # Abre o arquivo passado pelo usuário em modo leitura
             linhas = arquivo.readlines()
             for linha in linhas:
                 detalhes = linha.strip().split(',')        
