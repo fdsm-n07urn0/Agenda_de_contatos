@@ -1,40 +1,23 @@
 AGENDA = {}
-'''
-AGENDA["Guilherme"] = {  # Adicionar alguns contatos manualmente enquanto não cria um metodo...
-    "telefone": "99992-8276",
-    "email": "guilherme@solyd.com.br",
-    "endereco": "Av. 1",
-}
 
-AGENDA["Maria"] = {
-    "telefone": "99992-2727",
-    "email": "maria@solyd.com.br",
-    "endereco": "Av. 2",
-}
-'''
 
 def mostrar_contatos():
-    if AGENDA:      # Verifica se existe contato na agenda
+    if AGENDA:                          # Verifica se existe contato na agenda
         for contato in AGENDA:          # Faz mostra todos contatos (Um contato em cada linha)
-            buscar_contato(contato)     # Refaturado para não ficar igual ao de baixo (Chamo função buscar_contato)
+            buscar_contato(contato)     
     else:
         print('>>>> Agenda vazia <<<<')
 
-       #print('Nome:', contato)
-       #print('Telefone:', AGENDA[contato]['telefone'])
-       #print('Email:', AGENDA[contato]['email'])
-       #print('Endereço:', AGENDA[contato]['endereco'])
 
-
-def buscar_contato(contato):                 # Chamo essa função no for na função de cima pra mostra todos contatos
+def buscar_contato(contato):                 # Chama essa função no for da função de cima pra mostra todos contatos
     try:
         print('Nome:', contato)                                # Mostra um contado
         print('Telefone:', AGENDA[contato]['telefone'])        # Filtra pela informação desejada
         print('Email:', AGENDA[contato]['email'])
         print('Endereço:', AGENDA[contato]['endereco'])
         print("-----------------------------")
-    except KeyError:                            # Esse erro constuma acontecer em dicionário (KeyError)
-        print('>>>> Contato inexistente <<<<')  # Pode colocar o except sem especificar o erro na frente
+    except KeyError:                           
+        print('>>>> Contato inexistente <<<<')     
     except Exception as error:
         print('>>>> Um erro inesperado ocorreu')
         print(error)
@@ -86,13 +69,13 @@ def exportar_contatos(nome_do_arquivo):
         print(error)
 
 
-def importar_contatos(nome_do_arquivo):     # Pega o nome do arquivo
+def importar_contatos(nome_do_arquivo):               # Pega o nome do arquivo
     try:
         with open(nome_do_arquivo, 'r') as arquivo:   # Abre o arquivo passado pelo usuário
             linhas = arquivo.readlines()
             for linha in linhas:
-                detalhes = linha.strip().split(',')        # Separa as por virgula ( .split() )
-                                                           # Tira o \n ( .strip() )
+                detalhes = linha.strip().split(',')        
+                
                 contato = detalhes[0]
                 telefone = detalhes[1]
                 email = detalhes[2]
@@ -160,11 +143,11 @@ while True:
         mostrar_contatos()
 
     elif menu == '2':
-        contato = input('Nome do contato: ').capitalize()    # Coloca a primeira letra em maiuscula (.capitalize)
+        contato = input('Nome do contato: ').capitalize()    
         buscar_contato(contato)
 
     elif menu == '3':
-        contato = input('Nome do contato: ').capitalize()     # None é usado quando o contato não possui algum dado
+        contato = input('Nome do contato: ').capitalize()     
         try:
             AGENDA[contato]
             print('>>>> Contato já existente')
@@ -192,7 +175,7 @@ while True:
 
     elif menu == '7':
         nome_do_arquivo = input('Digite o nome do arquivo a ser importado: ')
-        importar_contatos(nome_do_arquivo)     # Envia o nome do aquivo digitado para o importar_contatos()
+        importar_contatos(nome_do_arquivo)                  # Envia o nome do aquivo digitado para o importar_contatos()
 
     elif menu == '0':
         print('>>>> Fechando programa <<<<')
