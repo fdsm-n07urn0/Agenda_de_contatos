@@ -175,7 +175,7 @@ while True:
 
     elif menu == '7':
         nome_do_arquivo = input('Digite o nome do arquivo a ser importado: ')
-        importar_contatos(nome_do_arquivo)                  # Envia o nome do aquivo digitado para o importar_contatos()
+        importar_contatos(nome_do_arquivo)        # Envia o nome do aquivo digitado para o importar_contatos() e abre o arquivo
 
     elif menu == '0':
         print('>>>> Fechando programa <<<<')
